@@ -2,6 +2,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+
+
 </head>
 <body>
   <div>
@@ -13,9 +15,8 @@
   <div id="dialogBox" style="width:95%; height:80%; overflow:auto; border:ridge 1px #888888; ">
 >> 您好，我的朋友! 有心事嗎 ?<BR/>  
   </div>
-  <script type="text/javascript">  
-  
-  var say = '';     
+  <script type="text/javascript">
+    var say = '';     
 
       ThunkableWebviewerExtension.receiveMessage(function(message) {  
 
@@ -25,8 +26,7 @@
 
       answer(); // 然後回答使用者的問題。
 
-    });
-  
+    });  
 /* 以下為本程式回答問題時使用的 Q&A 規則，例如對於以下 Q&A 規則物件
 
  { Q:"想 | 希望", A:"為何想*呢?|真的想*?|那就去做阿?為何不呢?"},
@@ -79,11 +79,8 @@ var qaList = [
 { Q:"難過", A:"別想它了|別難過|別想那麼多了|事情總是會解決的"},
 { Q:"高興", A:"不錯ㄚ|太棒了|這樣很好ㄚ"},
 { Q:"是阿|是的", A:"甚麼事呢?|我可以幫助你嗎?|我希望我能幫得上忙!"},
-{ Q:"沒", A:"真的沒*嗎?"},
-{ Q:"很", A:"為什麼會這樣呢?"},
 { Q:"", A:"我了解|我能理解|還有問題嗎 ?|請繼續說下去|可以說的更詳細一點嗎?|這樣喔!我知道!|然後呢?發生甚麼事?|再來呢?可以多說一些嗎|接下來呢?|可以多告訴我一些嗎?|多談談有關你的事，好嗎?|想多聊一聊嗎|可否多告訴我一些呢?"}
 ];  
-
   
     function random(n) { // 從 0 到 n-1 中選一個亂數
       return Math.floor(Math.random()*n);
@@ -106,8 +103,7 @@ var qaList = [
     }
 
     function answer() { // 回答問題
-      setTimeout(function () {          
-          var r =getAnswer();
+                var r =getAnswer();
 
       setTimeout(function () { // 停頓 1 到 3 秒再回答問題 (因為若回答太快就不像人了，人打字需要時間)
 
@@ -116,10 +112,6 @@ var qaList = [
       }, 1000+random(2000));
 
           ThunkableWebviewerExtension.postMessage(r);
-
-
-
-
     }
     
     function getAnswer() {
